@@ -10,10 +10,12 @@ let keys = Object.keys(obj);
 let values = Object.values(obj);
 
 for (let key of keys) {
-  console.log({ key })
+  let kee = { key };
+  console.log(kee)
 }
 for (let value of values) {
-  console.log({ value })
+  let valuee = { value };
+  console.log(valuee)
 }
 
 let newObj = Object.assign({}, Object.keys(obj), Object.values(obj));
