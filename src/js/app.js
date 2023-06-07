@@ -6,31 +6,29 @@
 // console.log(sum([1, 2]));
 
 function orderByProps(obj, [prop1, prop2]) {
-let keys = Object.keys(obj);
-let values = Object.values(obj);
+  
+  let arrOfObj = [];
 
-for (let key of keys) {
-  console.log({ key })
-}
-for (let value of values) {
-  console.log({ value })
-}
+  for (let prop in obj) {
+    arrOfObj.push({ 'key': prop, 'value': obj[prop] });
+  }
+  
+  
+  arrOfObj.sort((prev, next) => {
+    // console.log(prev.key, next.key)
+    if ( prev.key < next.key ) {
+      return -1
+    };
+    console.log(obj[prop2])
+    // if ( prev.key < next.key ) return 1;
+  });
 
-let newObj = Object.assign({}, Object.keys(obj), Object.values(obj));
+  console.log(arrOfObj)
 
-console.log(newObj)
-
-// console.log(keys, values, prop1, prop2)
-// if (keys.includes(prop1)) {
-//   let arrSort = keys.sort();
-//   console.log(arrSort)
-// } else {
-//   console.log('no')
-// }
-
-return 
+  return
 }
 
-const obj = {name: 'мечник', health: 10, level: 2, attack: 80, defence: 40};
+const obj = { name: 'мечник', health: 10, level: 2, attack: 80, defence: 40 };
 
-orderByProps(obj, ['name', 'level'])
+orderByProps(obj, ['name', 'level']);
+
