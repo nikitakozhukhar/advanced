@@ -8,22 +8,23 @@
 function orderByProps(obj, [prop1, prop2]) {
   
   let arrOfObj = [];
+  let sortPtoperty = { prop1, prop2 };
+ 
 
   for (let prop in obj) {
     arrOfObj.push({ 'key': prop, 'value': obj[prop] });
   }
-  
+
+  for (let i = 0; i <= arrOfObj.length-1; i++) {
+    console.log(arrOfObj[i].key)
+  }
   
   arrOfObj.sort((prev, next) => {
     // console.log(prev.key, next.key)
     if ( prev.key < next.key ) {
       return -1
     };
-    console.log(obj[prop2])
-    // if ( prev.key < next.key ) return 1;
   });
-
-  console.log(arrOfObj)
 
   return
 }
