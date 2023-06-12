@@ -15,14 +15,47 @@ export default function orderByProps(data, head) {
   return result.map((key) => ({ key, value: data[key] }));
 }
 
-export function showDescription(obj) {
-  const specials = [];
-  for (let i = 0; i <= obj.special.length - 1; i++) {
-    specials.push(obj.special[i]);
-    if (!('description' in specials[i])) {
-      specials[i].description = 'Описание недоступно';
+// export function showDescription(obj) {
+//   const specials = [];
+//   for (let i = 0; i <= obj.special.length - 1; i++) {
+//     specials.push(obj.special[i]);
+//     if (!('description' in specials[i])) {
+//       specials[i].description = 'Описание недоступно';
+//     }
+//   }
+//   // console.log(Object.keys(specials[0]).length)
+//   return specials;
+// }
+const character = {
+  name: 'Лучник',
+  type: 'Bowman',
+  health: 50,
+  level: 3,
+  attack: 40,
+  defence: 10,
+  special: [
+    {
+      id: 8,
+      name: 'Двойной выстрел',
+      icon: 'http://...',
+      description: 'Двойной выстрел наносит двойной урон'
+    },
+    {
+      id: 9,
+      name: 'Нокаутирующий удар',
+      icon: 'http://...'
+      // <- обратите внимание, описание "засекречено"
+    }
+  ]
+}
+
+export function showDescription({ special: [...restObj] }) {
+  for (let i = 0; i <= restObj.length - 1; i++) {
+    if (!('description' in restObj[i])) {
+      restObj[i].description = 'Описание недоступно';
     }
   }
-  // console.log(Object.keys(specials[0]).length)
-  return specials;
+  console.log(restObj)
+  return restObj;
 }
+
